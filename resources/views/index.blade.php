@@ -40,10 +40,10 @@
                                 </div>
                                 <div class="row">
                                     <div class="hstack gap-2 justify-content-end d-print-none mt-4">
-                                        <a href="{{ route('alhafiz') }}" class="btn btn-success"><i class="ri-taxi-fill align-bottom me-1"></i> Alhafiz VIP Transport</a>
+                                        <a href="{{ route('company', ['id' => 1]) }}" class="btn btn-success"><i class="ri-taxi-fill align-bottom me-1"></i> Talab Al Aali</a>
                                     </div>
                                     <div class="hstack gap-2 justify-content-end d-print-none mt-4">
-                                        <a href="{{ route('talabalali') }}" class="btn btn-success"><i class="ri-taxi-fill align-bottom me-1"></i> Talab Al Aali</a>
+                                        <a href="{{ route('company', ['id' => 2]) }}" class="btn btn-success"><i class="ri-taxi-fill align-bottom me-1"></i> Alhafiz VIP Transport</a>
                                     </div>
                                 </div>
 

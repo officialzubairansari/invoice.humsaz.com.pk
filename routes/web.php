@@ -16,8 +16,8 @@ use App\Http\Controllers\MainController;
 */
 
 Route::resource('', MainController::class);
-Route::get('/alhafiz', [MainController::class, 'companyAlhafiz'])->name('alhafiz');
-Route::get('/talabalali', [MainController::class, 'companyTalabAlali'])->name('talabalali');
+Route::get('/company/{id}', [MainController::class, 'company'])->name('company');
 Route::post('/pdf', [MainController::class, 'generatePDF'])->name('pdf');
+Route::get('/download', [MainController::class, 'download'])->name('download');
 
 

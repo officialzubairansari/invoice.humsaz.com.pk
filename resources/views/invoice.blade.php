@@ -37,31 +37,29 @@
                                 @csrf
                                 <div class="card-body border-bottom border-bottom-dashed p-4">
                                     <div class="row mt-5">
-                                        <div class="col-4">
+                                        <div class="col-md-4">
                                             <div class="text-center">
-                                                <h4>High Demand Land Transport</h4>
-                                                <h4>Company</h4>
-                                                <h4>0558877866</h4>
+                                                <h4>{{ $company_data->company_name_english }}</h4>
+                                                <h4>{{ $company_data->number }}</h4>
                                             </div>
                                         </div>
-                                        <div class="col-4">
-                                            <div class="text-center">
-                                               <span class="overflow-hidden border border-dashed d-flex align-items-center justify-content-center rounded" style="height: 60px; width: 256px;">
-                                                            <img src="assets/images/logo-dark.png" class="card-logo card-logo-dark user-profile-image img-fluid" alt="logo dark">
-                                                            <img src="assets/images/logo-light.png" class="card-logo card-logo-light user-profile-image img-fluid" alt="logo light">
-                                               </span>
-                                            </div>
+                                        <div class="col-md-4 text-center">
+                                            <span class="overflow-hidden border border-dashed d-flex align-items-center justify-content-center rounded" style="height: 90px; width: 256px;">
+                                                            <img src="{{ asset('assets/images/').$company_data->logo }}" class="img-fluid" alt="logo">
+                                            </span>
                                         </div>
-                                        <div class="col-4">
+                                        <div class="col-md-4">
                                                 <div class="text-center">
-                                                    <h4>شرکۃ الطلب العالی</h4>
-                                                    <h4>للنقل البری</h4>
-                                                    <h4>0558877866</h4>
+                                                    <h4>{{ $company_data->company_name_arabic }}</h4>
+                                                    <h4>{{ $company_data->number }}</h4>
                                                 </div>
                                         </div>
                                     </div>
+                                    <div class="row mt-5">
+                                        <input hidden type="text" name="company_id" class="form-control bg-light border-0" value="{{ $company_data->id }}" required />
+                                    </div>
 
-                                    <div class="row">
+                                    <div class="row mt-5">
                                         <div class="text-center text-decoration-underline">
                                             <h2>بيانات الركاب</h2>
                                         </div>

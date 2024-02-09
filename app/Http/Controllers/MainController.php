@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Company;
 use App\Models\Instagram;
 use App\Models\Invoice;
 use App\Models\Passenger;
@@ -17,27 +18,16 @@ class MainController extends Controller
         return view('index');
     }
 
-    public function companyAlhafiz()
+    public function company($id)
     {
-        $company_name_english = 'Alhafiz VIP Transport';
-        $company_name_arabic = 'شرکۃ ال العالی لنقل البری';
-        $number = '03222138989';
-        $logo = 'test';
-        return view('invoice', compact('company_name_english', 'company_name_arabic', 'logo'));
-    }
+        $company_data = Company::where('id', $id)->first();
 
-    public function companyTalabAlali()
-    {
-        $company_name_english = 'High Demand Land Transport';
-        $company_name_arabic = 'شرکۃ الطلب العالی لنقل البری';
-        $number = '03222138989';
-
-        $logo = 'test';
-        return view('invoice', compact('company_name_english', 'company_name_arabic', 'logo'));
+        return view('invoice', compact('company_data'));
     }
     public function generatePDF(Request $request)
     {
         $invoiceDate = ([
+            'company_id' => $request->company_id,
             'no_al_sayarah' => $request->no_al_sayarah,
             'raqam_al_lawha' => $request->raqam_al_lawha,
             'ism_al_saiq' => $request->ism_al_saiq,
@@ -65,6 +55,19 @@ class MainController extends Controller
                 'al_jinsiyah' => $passengerData['al_jinsiyah'][$i],
             ]);
         }
+
+        $invoice_id = $invoice->id;
+        return redirect()->route('download', ['invoice_id' => $invoice_id]);
+    }
+
+    public function download(Request $request) {
+        $invoice_id = $request->query('invoice_id');
+
+        $invoice_data = Invoice::where('id', $invoice_id)->first();
+        $company_data = Company::where('id', $invoice_data->company_id)->first();
+        $passenger_data = Passenger::where('invoice_id', $invoice_data->id)->get();
+
+        return view('download', compact('company_data', 'invoice_data', 'passenger_data'));
     }
 
 
