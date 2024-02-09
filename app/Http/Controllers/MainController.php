@@ -7,6 +7,7 @@ use App\Models\Invoice;
 use App\Models\Passenger;
 use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 use Dompdf\Dompdf;
 use Dompdf\Options;
@@ -72,14 +73,20 @@ class MainController extends Controller
         $company_data = Company::where('id', $invoice_data->company_id)->first();
         $passenger_data = Passenger::where('invoice_id', $invoice_data->id)->get();
 
+        // Render the view using Laravel's view system
+        $html = View::make('download', compact('company_data', 'invoice_data', 'passenger_data'))->render();
+
         $options = new Options();
         // Set the default font
         $options->set('defaultFont', 'Arial');
 
         $pdf = new Dompdf($options);
-        $pdf->loadView('download', compact('company_data', 'invoice_data', 'passenger_data'));
+        $pdf->loadHtml($html);
 
-        return $pdf->download('invoice.pdf');
+        // Render the PDF
+        $pdf->render();
+
+        return $pdf->stream('invoice.pdf');
     }
 
 
