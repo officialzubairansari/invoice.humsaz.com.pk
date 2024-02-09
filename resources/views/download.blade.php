@@ -5,9 +5,6 @@
 
     <meta charset="utf-8" />
     <title>Create Invoice | Arcotic Solutions Pvt. Ltd.</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
-    <meta content="Themesbrand" name="author" />
 
     <!-- Layout config Js -->
     <script src="{{ asset('assets/js/layout.js') }}"></script>
