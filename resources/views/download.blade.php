@@ -129,11 +129,6 @@
                                             @endforeach
                                         </tbody>
                                     </table>
-
-                                </div>
-                                <!--end row-->
-                                <div class="hstack gap-2 justify-content-end d-print-none mt-4">
-                                    <button type="submit" class="btn btn-primary"><i class="ri-download-2-line align-bottom me-1"></i> Download PDF Invoice</button>
                                 </div>
                             </div>
                         </div>

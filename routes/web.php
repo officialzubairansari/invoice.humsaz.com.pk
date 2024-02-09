@@ -18,6 +18,6 @@ use App\Http\Controllers\MainController;
 Route::resource('', MainController::class);
 Route::get('/company/{id}', [MainController::class, 'company'])->name('company');
 Route::post('/pdf', [MainController::class, 'generatePDF'])->name('pdf');
-Route::get('/download', [MainController::class, 'download'])->name('download');
+Route::get('/downloadPDF/{id}',[MainController::class, 'download'])->name('downloadPDF');
 
 

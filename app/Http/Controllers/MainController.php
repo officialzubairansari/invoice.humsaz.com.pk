@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
-use App\Models\Instagram;
 use App\Models\Invoice;
 use App\Models\Passenger;
+use Barryvdh\DomPDF\PDF;
 use Illuminate\Http\Request;
+
 
 class MainController extends Controller
 {
@@ -57,17 +58,19 @@ class MainController extends Controller
         }
 
         $invoice_id = $invoice->id;
-        return redirect()->route('download', ['invoice_id' => $invoice_id]);
+        return redirect()->route('downloadPDF', ['id' => $invoice_id]);
     }
 
-    public function download(Request $request) {
-        $invoice_id = $request->query('invoice_id');
+    public function download($id) {
+        $invoice_id = $id;
 
         $invoice_data = Invoice::where('id', $invoice_id)->first();
         $company_data = Company::where('id', $invoice_data->company_id)->first();
         $passenger_data = Passenger::where('invoice_id', $invoice_data->id)->get();
 
-        return view('download', compact('company_data', 'invoice_data', 'passenger_data'));
+        $pdf = PDF::loadView('download', compact('company_data', 'invoice_data', 'passenger_data'));
+
+        return $pdf->download('invoice.pdf');
     }
 
 
