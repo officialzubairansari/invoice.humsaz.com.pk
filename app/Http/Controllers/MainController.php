@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Company;
 use App\Models\Invoice;
 use App\Models\Passenger;
-use Barryvdh\DomPDF\PDF;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 
 
@@ -68,7 +68,7 @@ class MainController extends Controller
         $company_data = Company::where('id', $invoice_data->company_id)->first();
         $passenger_data = Passenger::where('invoice_id', $invoice_data->id)->get();
 
-        $pdf = PDF::loadView('download', compact('company_data', 'invoice_data', 'passenger_data'));
+        $pdf = Pdf::loadView('download', compact('company_data', 'invoice_data', 'passenger_data'));
 
         return $pdf->download('invoice.pdf');
     }
