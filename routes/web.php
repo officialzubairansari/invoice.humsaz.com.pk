@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\InstagramController;
+use App\Http\Controllers\MainController;
 
 
 /*
@@ -15,4 +15,9 @@ use App\Http\Controllers\InstagramController;
 |
 */
 
-Route::resource('instagram', InstagramController::class);
+Route::resource('', MainController::class);
+Route::get('/alhafiz', [MainController::class, 'companyAlhafiz'])->name('alhafiz');
+Route::get('/talabalali', [MainController::class, 'companyTalabAlali'])->name('talabalali');
+Route::post('/pdf', [MainController::class, 'generatePDF'])->name('pdf');
+
+
