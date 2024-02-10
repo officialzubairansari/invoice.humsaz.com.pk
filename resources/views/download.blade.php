@@ -8,14 +8,135 @@
 
     <!-- Layout config Js -->
     <script src="{{ asset('assets/js/layout.js') }}"></script>
-    <!-- Bootstrap Css -->
-    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .pt-5 {
+            padding-top: 3rem !important;
+        }
+        .auth-page-content {
+            flex: 1;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            width: 100%;
+            padding-right: 15px;
+            padding-left: 15px;
+            margin-right: auto;
+            margin-left: auto;
+        }
+        .row {
+            --bs-gutter-x: 0;
+            --bs-gutter-y: 0;
+            display: flex;
+            flex-wrap: wrap;
+            margin-top: calc(var(--bs-gutter-y) * -1);
+            margin-right: calc(var(--bs-gutter-x) * -.5);
+            margin-left: calc(var(--bs-gutter-x) * -.5);
+        }
+        .col-lg-12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+        .col-xxl-12 {
+            flex: 0 0 auto;
+            width: 100%;
+        }
+        .card {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 0;
+            word-wrap: break-word;
+            background-color: #fff;
+            background-clip: border-box;
+            border: 1px solid rgba(0,0,0,.125);
+            border-radius: .25rem;
+        }
+        .card-body {
+            flex: 1 1 auto;
+            padding: 1.25rem;
+        }
+        .border-bottom {
+            border-bottom: 1px solid #dee2e6 !important;
+        }
+        .p-4 {
+            padding: 1.5rem !important;
+        }
+        .mt-5 {
+            margin-top: 3rem !important;
+        }
+        .text-center {
+            text-align: center !important;
+        }
+        .overflow-hidden {
+            overflow: hidden !important;
+        }
+        .border {
+            border: 1px solid #dee2e6 !important;
+        }
+        .d-flex {
+            display: flex !important;
+        }
+        .align-items-center {
+            align-items: center !important;
+        }
+        .justify-content-center {
+            justify-content: center !important;
+        }
+        .rounded {
+            border-radius: .25rem !important;
+        }
+        .img-fluid {
+            max-width: 100%;
+            height: auto;
+        }
+        .form-control {
+            display: block;
+            width: 100%;
+            padding: .375rem .75rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            color: #495057;
+            background-color: #fff;
+            background-clip: padding-box;
+            border: 1px solid #ced4da;
+            border-radius: .25rem;
+            transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+        }
+        .form-control[readonly] {
+            background-color: #e9ecef;
+            opacity: 1;
+        }
+        .table {
+            width: 100%;
+            margin-bottom: 1rem;
+            color: #212529;
+        }
+        .table th,
+        .table td {
+            padding: .75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+        .table-bordered {
+            border: 1px solid #dee2e6;
+        }
+        .table-responsive {
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+        .table-active {
+            background-color: rgba(0,0,0,.075);
+        }
+    </style>
+  
+    
 
 
 </head>
